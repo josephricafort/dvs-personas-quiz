@@ -1,5 +1,25 @@
 import React from "react";
 
+const Button = ({ value, setValue, stateValue }) => {
+  const handleClick = (e) => {
+    setValue(e.target.value);
+  };
+
+  const style = {
+    opacity: value === stateValue ? 1 : 0.5,
+  };
+
+  return (
+    <input
+      type="button"
+      value={value}
+      className="text-lg bg-emerald-400 px-4 py-2 rounded-lg m-2 grow cursor-pointer"
+      onClick={handleClick}
+      style={style}
+    />
+  );
+};
+
 const Table = ({ data }) => {
   const { headers, rows } = data;
   return (
@@ -26,8 +46,9 @@ const Table = ({ data }) => {
   );
 };
 
-const Quiz = ({ content }) => {
+const Quiz = ({ content, data, methods }) => {
   const { header, intro, quiz } = content;
+  const [experience, role, incomeGp, commitment] = data;
 
   return (
     <div className="mx-auto max-w-screen-md bg-white pt-10 px-10 pb-5 border-b-2">
@@ -55,11 +76,11 @@ const Quiz = ({ content }) => {
               </div>
               <div className="flex justify-center pt-2 px-5">
                 {qItem.a.map((an, anIdx) => (
-                  <input
-                    type="button"
+                  <Button
                     key={anIdx}
                     value={an}
-                    className="text-lg bg-emerald-400 px-4 py-2 rounded-lg m-2 grow"
+                    setValue={methods[qItemIdx]}
+                    stateValue={data[qItemIdx]}
                   />
                 ))}
               </div>

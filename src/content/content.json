@@ -9,12 +9,6 @@
   },
   "quiz": {
     "qIntro": "Identify your persona by answering the 4 simple questions!",
-    "qTest": [
-      {
-        "q": "I have a question",
-        "a": "Here's my answer"
-      }
-    ],
     "qItems": [
       {
         "q": "About how many years of experience do you have doing data visualization?",
@@ -62,7 +56,7 @@
     },
     "btns": {
       "fullReport": "GO TO FULL REPORT",
-      "retake": "Retake quiz"
+      "retake": "Reset quiz"
     }
   }
 }
