@@ -1,0 +1,68 @@
+{
+  "header": {
+    "title": "What is your DVS persona?",
+    "subtitle": "Which among the 16 personas are you and what does it says about you?",
+    "byline": "BY JOSEPH RICAFORT"
+  },
+  "intro": {
+    "p": "Four different variables (years experience, role, annual income, commitment), split into two leaning sides each, mixed-and-match and altogether resulted into 16 different personas!"
+  },
+  "quiz": {
+    "qIntro": "Identify your persona by answering the 4 simple questions!",
+    "qTest": [
+      {
+        "q": "I have a question",
+        "a": "Here's my answer"
+      }
+    ],
+    "qItems": [
+      {
+        "q": "About how many years of experience do you have doing data visualization?",
+        "a": ["Less than 6 years", "More than 6 years"]
+      },
+      {
+        "q": "Which roles do you closely identify yourself with? If you have an ambiguous role, try to pick which it lean more towards.",
+        "a": ["More analytical", "More creative"],
+        "table": {
+          "headers": ["Analytical", "Creative"],
+          "rows": [
+            ["Analyst", "Designer"],
+            ["Scientist", "Journalist"],
+            ["Engineer", "Teacher"]
+          ]
+        }
+      },
+      {
+        "q": "Is your annual income less than or greater than USD81,000?",
+        "a": ["Less than USD 81K", "More than USD 81K"]
+      },
+      {
+        "q": "Which is your commitment status in your work, are you working more full-time (associate) or more flexible work arrangement (independent)?",
+        "a": ["More as an Associate", "More as an Independent"],
+        "table": {
+          "headers": ["Associate", "Independent"],
+          "rows": [
+            ["Employee", "Freelancer"],
+            ["Academic", "Hobbyist"],
+            ["", "Student"],
+            ["", "Passive-income"]
+          ]
+        }
+      }
+    ]
+  },
+  "results": {
+    "btn": "GET RESULTS!",
+    "label": "You have a similar profile as:",
+    "pp": {
+      "percSame": " of the DVS survey respondents has the same profile as you.",
+      "nthSame1": "You are the ",
+      "nthSame2": " type among the 16 DVS personas.",
+      "learnMore": "Learn more how you differ in terms of tools of use and industry compared to the other personas."
+    },
+    "btns": {
+      "fullReport": "GO TO FULL REPORT",
+      "retake": "Retake quiz"
+    }
+  }
+}
