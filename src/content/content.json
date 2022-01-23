@@ -50,7 +50,7 @@
       "completeShow": "SHOW RESULTS!",
       "completeHide": "HIDE RESULTS"
     },
-    "label": "You have a similar persona as:",
+    "label": "You have the closest persona to",
     "pp": {
       "percSame": " of the DVS survey respondents has the same persona as you.",
       "nthSame1": "You have the ",

@@ -46,7 +46,7 @@ function App() {
 
   useEffect(() => {
     fetch(
-      "https://raw.githubusercontent.com/josephricafort/dataviz-state-2021-entry/main/01_exploration/data/processed/tribe_tally.json"
+      "https://raw.githubusercontent.com/josephricafort/dataviz-state-2021-entry/main/data/processed/tribe_tally.json"
     )
       .then((res) => res.json())
       .then(
