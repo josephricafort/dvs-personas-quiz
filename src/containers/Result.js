@@ -59,11 +59,18 @@ const Result = ({ content, data, methods }) => {
             <p className="text-xl my-5">{results.pp.learnMore}</p>
           </div>
           <div className="flex justify-center p-5">
-            <input
-              type="button"
-              className="text-lg bg-emerald-400 px-4 py-2 rounded-lg m-2 max-w-full grow cursor-pointer text-white font-bold opacity-100 hover:opacity-80"
-              value={results.btns.fullReport}
-            />
+            <a
+              href="https://dvs-persona-explainer.thelostkite.com/index.nb.html"
+              className="grow"
+            >
+              <div className="grow max-w-full grow flex">
+                <input
+                  type="button"
+                  className="text-lg bg-emerald-400 px-4 py-2 rounded-lg m-2 max-w-full grow cursor-pointer text-white font-bold opacity-100 hover:opacity-80"
+                  value={results.btns.fullReport}
+                />
+              </div>
+            </a>
             <input
               type="button"
               className="text-lg bg-emerald-300 px-4 py-2 rounded-lg m-2 max-w-full grow cursor-pointer opacity-100 hover:opacity-80"
