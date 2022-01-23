@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 
 const Result = ({ content, data, methods }) => {
   const { results } = content;
-  const { persona, isResultsComplete, isResultsShown } = data;
+  const { persona, mainIndFct, isResultsComplete, isResultsShown } = data;
   const { setIsResultsShown, handleReset } = methods;
+  const [expFct, roleFct, incFct, comFct] = mainIndFct;
 
   const [resultsBtnVal, setResultsBtnVal] = useState(results.btn.completeShow);
 
@@ -39,10 +40,15 @@ const Result = ({ content, data, methods }) => {
       {isResultsShown && (
         <div>
           <div className="flex-col justify-center text-center text-xl">
-            <p>{results.label}</p>
+            <p className="mb-5">{results.label}</p>
+            <div className="flex justify-center">
+              <img
+                src={require(`../assets/images/avatars/${expFct}-${roleFct}-${incFct}-${comFct}.png`)}
+                className="h-52"
+              />
+            </div>
             <h3 className="text-3xl mt-3">{persona.name}</h3>
             <p>{persona.id}</p>
-            <div className="h-40 w-40 bg-amber-400 rounded-full my-10 mx-auto"></div>
           </div>
           <div>
             <p className="text-xl my-5">

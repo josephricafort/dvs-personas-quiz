@@ -58,7 +58,12 @@ const Quiz = ({ content, data, methods }) => {
   return (
     <div className="mx-auto max-w-screen-md bg-white pt-10 px-10 pb-5 border-b-2">
       <div className="text-center">
-        <div className="h-40 w-40 bg-amber-400 rounded-full my-10 mx-auto"></div>
+        <div className="">
+          <img
+            src={require("../assets/images/cover.png")}
+            className="mb-10 px-10 pt-0"
+          />
+        </div>
         <h1 className="font-bold text-5xl mb-3">{header.title}</h1>
         <p className="text-2xl mb-5">{header.subtitle}</p>
         <p className="text-lg ">{header.byline}</p>

@@ -93,6 +93,7 @@ function App() {
   }, [personasData, experience, role, incomeGp, commitment]);
 
   const mainIndicators = [experience, role, incomeGp, commitment];
+  const mainIndFct = [expFct, roleFct, incFct, comFct];
   const isResultsComplete = mainIndicators.every((d) => d !== "");
 
   const handleReset = () => {
@@ -108,7 +109,7 @@ function App() {
     methods: [setExperience, setRole, setIncomeGp, setCommitment],
   };
   const resultsProps = {
-    data: { persona, mainIndicators, isResultsComplete, isResultsShown },
+    data: { persona, mainIndFct, isResultsComplete, isResultsShown },
     methods: { setIsResultsShown, handleReset },
   };
 
