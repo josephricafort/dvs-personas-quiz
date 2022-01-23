@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
-import { toTitleCase } from "./utils";
+import { toTitleCase, getRank } from "./utils";
 import "./index.css";
 
 import Quiz from "./containers/Quiz";
@@ -17,9 +16,13 @@ function App() {
       personaName: "",
     },
   ]);
+
   const [persona, setPersona] = useState({
     id: "",
     name: "",
+    percent: 0,
+    rank: "",
+    rarity: "",
   });
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -32,6 +35,8 @@ function App() {
   const [incomeGp, setIncomeGp] = useState("");
   // More as an Associate OR More as an Independent
   const [commitment, setCommitment] = useState("");
+
+  const [isResultsShown, setIsResultsShown] = useState(false);
 
   const expFct = experience === "Less than 6 years" ? "junior" : "senior";
   const roleFct = role === "More analytical" ? "analytical" : "creative";
@@ -46,7 +51,6 @@ function App() {
       .then((res) => res.json())
       .then(
         (data) => {
-          console.log(data);
           setPersonasData(data);
         },
         (error) => {
@@ -59,30 +63,53 @@ function App() {
   const id = [expFct, roleFct, incFct, comFct]
     .map((fct) => toTitleCase(fct))
     .join(" - ");
-  const matchPersona = personasData.filter((persona) => {
-    const { experience, roleType, incomeGroup, commitment } = persona;
 
-    return (
-      experience === expFct &&
-      roleType === roleFct &&
-      incomeGroup === incFct &&
-      commitment === comFct
-    );
-  });
-  console.log(matchPersona);
+  const personaIndex = personasData.findIndex(
+    ({ experience, roleType, incomeGroup, commitment }) => {
+      return (
+        experience === expFct &&
+        roleType === roleFct &&
+        incomeGroup === incFct &&
+        commitment === comFct
+      );
+    }
+  );
+
+  const nRank =
+    personaIndex + 1 > 8 ? 17 - (personaIndex + 1) : personaIndex + 1;
+
+  const rarity = personaIndex + 1 > 8 ? "rarest" : "most common";
 
   useEffect(() => {
-    if (matchPersona) {
-      setPersona({ id, name: matchPersona[0].personaName });
+    if (personaIndex !== -1) {
+      setPersona({
+        id,
+        name: personasData[personaIndex].personaName,
+        percent: personasData[personaIndex].nPerc,
+        rank: getRank(nRank),
+        rarity,
+      });
     }
   }, [personasData, experience, role, incomeGp, commitment]);
 
+  const mainIndicators = [experience, role, incomeGp, commitment];
+  const isResultsComplete = mainIndicators.every((d) => d !== "");
+
+  const handleReset = () => {
+    setExperience("");
+    setRole("");
+    setIncomeGp("");
+    setCommitment("");
+    setIsResultsShown(false);
+  };
+
   const quizProps = {
-    data: [experience, role, incomeGp, commitment],
+    data: { mainIndicators, isResultsComplete, isResultsShown },
     methods: [setExperience, setRole, setIncomeGp, setCommitment],
   };
   const resultsProps = {
-    persona,
+    data: { persona, mainIndicators, isResultsComplete, isResultsShown },
+    methods: { setIsResultsShown, handleReset },
   };
 
   return (

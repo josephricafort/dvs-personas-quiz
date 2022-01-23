@@ -1,21 +1,26 @@
 import React from "react";
 
-const Button = ({ value, setValue, stateValue }) => {
+const Button = ({ value, setValue, stateValue, isDisabled }) => {
   const handleClick = (e) => {
     setValue(e.target.value);
   };
 
-  const style = {
-    opacity: value === stateValue ? 1 : 0.5,
+  const styles = {
+    backgroundColor:
+      value === stateValue ? "rgb(16 185 129)" : "rgb(110 231 183)",
+    color: value === stateValue ? "rgb(255 255 255)" : "rgb(0 0 0)",
+    fontWeight: value === stateValue ? "700" : "500",
+    opacity: isDisabled ? 0.5 : 1,
   };
 
   return (
     <input
       type="button"
       value={value}
-      className="text-lg bg-emerald-400 px-4 py-2 rounded-lg m-2 grow cursor-pointer"
+      className="text-lg bg-emerald-400 px-4 py-2 rounded-lg m-2 grow cursor-pointer opacity-100 hover:opacity-80"
       onClick={handleClick}
-      style={style}
+      style={styles}
+      disabled={isDisabled}
     />
   );
 };
@@ -48,14 +53,15 @@ const Table = ({ data }) => {
 
 const Quiz = ({ content, data, methods }) => {
   const { header, intro, quiz } = content;
-  const [experience, role, incomeGp, commitment] = data;
+  const { mainIndicators, isResultsComplete, isResultsShown } = data;
 
   return (
     <div className="mx-auto max-w-screen-md bg-white pt-10 px-10 pb-5 border-b-2">
-      <div>
+      <div className="text-center">
+        <div className="h-40 w-40 bg-amber-400 rounded-full my-10 mx-auto"></div>
         <h1 className="font-bold text-5xl mb-3">{header.title}</h1>
-        <p className="text-2xl">{header.subtitle}</p>
-        <p className="text-lg">{header.byline}</p>
+        <p className="text-2xl mb-5">{header.subtitle}</p>
+        <p className="text-lg ">{header.byline}</p>
       </div>
       <div className="my-10">
         <div>
@@ -63,7 +69,7 @@ const Quiz = ({ content, data, methods }) => {
         </div>
       </div>
       <div>
-        <h2 className="text-2xl">{quiz.qIntro}</h2>
+        <h2 className="text-xl">{quiz.qIntro}</h2>
         {quiz.qItems.map((qItem, qItemIdx) => {
           return (
             <div key={qItemIdx} className="my-10 last:mb-0">
@@ -80,7 +86,8 @@ const Quiz = ({ content, data, methods }) => {
                     key={anIdx}
                     value={an}
                     setValue={methods[qItemIdx]}
-                    stateValue={data[qItemIdx]}
+                    stateValue={mainIndicators[qItemIdx]}
+                    isDisabled={isResultsComplete && isResultsShown}
                   />
                 ))}
               </div>
