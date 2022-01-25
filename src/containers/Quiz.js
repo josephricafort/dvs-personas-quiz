@@ -70,15 +70,15 @@ const Quiz = ({ content, data, methods }) => {
       </div>
       <div className="my-10">
         <div>
-          <p className="text-xl">{intro.p}</p>
+          <p className="text-lg">{intro.p}</p>
         </div>
       </div>
       <div>
-        <h2 className="text-xl">{quiz.qIntro}</h2>
+        <h2 className="text-lg">{quiz.qIntro}</h2>
         {quiz.qItems.map((qItem, qItemIdx) => {
           return (
             <div key={qItemIdx} className="my-10 last:mb-0">
-              <h4 className="text-xl">
+              <h4 className="text-lg">
                 <span>{qItemIdx + 1}. </span>
                 {qItem.q}
               </h4>

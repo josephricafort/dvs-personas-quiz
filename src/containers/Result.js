@@ -39,7 +39,7 @@ const Result = ({ content, data, methods }) => {
       </div>
       {isResultsShown && (
         <div>
-          <div className="flex-col justify-center text-center text-xl">
+          <div className="flex-col justify-center text-center text-lg">
             <p className="mb-5">{results.label}</p>
             <div className="flex justify-center">
               <img
@@ -51,18 +51,32 @@ const Result = ({ content, data, methods }) => {
             <p>{persona.id}</p>
           </div>
           <div>
-            <p className="text-xl my-5">
+            <p className="text-lg my-5">
               <span className="font-bold">{persona.percent.toFixed(2)}%</span>
               {results.pp.percSame}
             </p>
-            <p className="text-xl my-5">
+            <p className="text-lg my-5">
               {results.pp.nthSame1}
               <span className="font-bold">
                 {persona.rank} {persona.rarity}
               </span>
               {results.pp.nthSame2}
             </p>
-            <p className="text-xl my-5">{results.pp.learnMore}</p>
+          </div>
+          <div className="flex-wrap justify-center">
+            <h3 className="text-xl font-bold">{results.pp.charttools}:</h3>
+            <img
+              src={require(`../assets/images/charttools/charttools-${expFct}-${roleFct}-${incFct}-${comFct}.svg`)}
+              className="mx-auto"
+            />
+            <h3 className="text-xl font-bold">{results.pp.chartindustry}:</h3>
+            <img
+              src={require(`../assets/images/chartindustry/chartindustry-${expFct}-${roleFct}-${incFct}-${comFct}.svg`)}
+              className="mx-auto"
+            />
+          </div>
+          <div>
+            <p className="text-lg my-5">{results.pp.learnMore}</p>
           </div>
           <div className="flex justify-center p-5">
             <a
