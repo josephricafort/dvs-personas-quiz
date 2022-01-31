@@ -56,12 +56,12 @@ const Quiz = ({ content, data, methods }) => {
   const { mainIndicators, isResultsComplete, isResultsShown } = data;
 
   return (
-    <div className="mx-auto max-w-screen-md bg-white border-b-2 p-10">
+    <div className="mx-auto max-w-screen-md bg-white border-b-2 p-5">
       <div className="text-center">
         <div className="">
           <img
             src={require("../assets/images/cover.png")}
-            className="mb-10 px-10 pt-0"
+            className="mb-10 pt-0"
           />
         </div>
         <h1 className="font-bold text-5xl mb-3">{header.title}</h1>

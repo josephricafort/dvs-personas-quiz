@@ -26,7 +26,7 @@ const Result = ({ content, data, methods }) => {
   };
 
   return (
-    <div className="mx-auto max-w-screen-md bg-white p-10">
+    <div className="mx-auto max-w-screen-md bg-white p-5">
       <div className="flex justify-center p-5">
         <input
           type="button"
