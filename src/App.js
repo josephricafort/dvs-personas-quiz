@@ -114,7 +114,7 @@ function App() {
   };
 
   return (
-    <div className="bg-slate-200 pt-20">
+    <div className="">
       <Quiz content={content} {...quizProps} />
       <Result content={content} {...resultsProps} />
     </div>

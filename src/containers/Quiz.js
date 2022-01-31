@@ -17,7 +17,7 @@ const Button = ({ value, setValue, stateValue, isDisabled }) => {
     <input
       type="button"
       value={value}
-      className="text-lg bg-emerald-400 px-4 py-2 rounded-lg m-2 grow cursor-pointer opacity-100 hover:opacity-80"
+      className="grow text-lg bg-emerald-400 px-4 py-2 rounded-lg m-2 cursor-pointer opacity-100 hover:opacity-80 w-full md:w-max"
       onClick={handleClick}
       style={styles}
       disabled={isDisabled}
@@ -56,7 +56,7 @@ const Quiz = ({ content, data, methods }) => {
   const { mainIndicators, isResultsComplete, isResultsShown } = data;
 
   return (
-    <div className="mx-auto max-w-screen-md bg-white pt-10 px-10 pb-5 border-b-2">
+    <div className="mx-auto max-w-screen-md bg-white border-b-2 p-10">
       <div className="text-center">
         <div className="">
           <img
@@ -85,7 +85,7 @@ const Quiz = ({ content, data, methods }) => {
               <div className="w-full mt-5">
                 {qItem.table && <Table data={qItem.table} />}
               </div>
-              <div className="flex justify-center pt-2 px-5">
+              <div className="flex-wrap md:flex justify-center pt-2 px-5">
                 {qItem.a.map((an, anIdx) => (
                   <Button
                     key={anIdx}
