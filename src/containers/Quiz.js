@@ -74,14 +74,14 @@ const Quiz = ({ content, data, methods }) => {
         </div>
       </div>
       <div>
-        <h2 className="text-lg">{quiz.qIntro}</h2>
+        <p className="text-lg">{quiz.qIntro}</p>
         {quiz.qItems.map((qItem, qItemIdx) => {
           return (
             <div key={qItemIdx} className="my-10 last:mb-0">
-              <h4 className="text-lg">
+              <p className="text-lg">
                 <span>{qItemIdx + 1}. </span>
                 {qItem.q}
-              </h4>
+              </p>
               <div className="w-full mt-5">
                 {qItem.table && <Table data={qItem.table} />}
               </div>
